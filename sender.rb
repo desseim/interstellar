@@ -18,10 +18,11 @@ system "BOTO_PATH=./secrets/.boto gsutil/gsutil cp -r gs://#{CONFIG["app_repo"]}
 
 class Slack
   def self.notify(message)
-    RestClient.post CONFIG["slack_url"], {
-      payload:
-      { text: message }.to_json
-    },
+
+    payload = { 'attachments' => [{ 'text' => message, "mrkdwn_in" => ["text", "pretext"] }]}
+    payload = payload.to_json
+    RestClient.post CONFIG["slack_url"],
+    payload,
     content_type: :json,
     accept: :json
   end
