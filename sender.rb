@@ -66,13 +66,6 @@ class Review
     @edited = data[:edited]
   end
 
-  def notify_to_slack
-    if text || title
-      message = "*Rating: #{rate}* | version: #{version} | subdate: #{submitted_at}\n #{[title, text].join(" ")}\n <#{url}|Ответить в Google play>"
-      Slack.notify(message)
-    end
-  end
-
   def build_message
     date = if edited
              "subdate: #{original_subitted_at.strftime("%d.%m.%Y at %I:%M%p")}, edited at: #{submitted_at.strftime("%d.%m.%Y at %I:%M%p")}"
