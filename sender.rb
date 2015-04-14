@@ -1,3 +1,5 @@
+# encoding: utf-8
+
 require 'rest-client'
 require 'json'
 require 'date'
