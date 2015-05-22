@@ -8,6 +8,8 @@ require 'yaml'
 
 CONFIG = YAML.load_file('./secrets/secrets.yml')
 
+PLAY_LINK_LABEL = 'Review on Google Play'
+
 date = Date.today-2
 
 file_date = date.strftime("%Y%m")
@@ -79,7 +81,7 @@ class Review
       "\n\n#{stars}",
       "#{[title, text].join(" ")}",
       "_#{date} | Version: #{version}_",
-      "<#{url}|Review on Google Play>",
+      "<#{url}|#{PLAY_LINK_LABEL}>",
     ].join("\n")
   end
 end
