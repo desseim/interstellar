@@ -1,4 +1,5 @@
 /secrets/secrets.yml
 /secrets/.boto
+/gsutil
 .DS_Store
 *.csv
